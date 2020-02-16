@@ -8,6 +8,8 @@
  *****************************************************************************/
 
 const sites: { [siteName: string]: string } = {
+  //List of sites to be polled in the format:
+  //Site Name: URL
   "City Utilities":
     "https://careers.cityutilities.net/careersection/ex/joblist.ftl?lang=en"
 };

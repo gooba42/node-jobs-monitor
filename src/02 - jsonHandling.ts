@@ -1,3 +1,4 @@
+//Create/maintain the json storage of the checksums
 const fs = require("fs");
 const jsonFN = "./data/checksums.json";
 let jsonObj: any;
@@ -5,7 +6,7 @@ let jsonObj: any;
 try {
   //Import the existing JSON if it exists...
   jsonObj = require(jsonFN);
-  console.log(jsonObj);
+  //console.log(jsonObj);
 } catch (error) {
   //Otherwise fall back on creating an empty one
   jsonObj = {};
@@ -13,6 +14,7 @@ try {
 }
 
 function saveInfo(myObj: object, filename: string) {
+  //Saves an arbitrary object into the filename given
   fs.writeFile(filename, JSON.stringify(myObj), "UTF8", function(err: string) {
     if (err) {
       console.log("An error occured while writing JSON to file.");
