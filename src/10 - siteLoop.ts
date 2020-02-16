@@ -7,11 +7,12 @@ const siteLoop = async () => {
 
     console.log(`Checksum,${item} coming up!\n`);
     console.log(`Existing checksum is ${jsonObj[item]}`);
+    console.log(`New checksum is ${newChecksum}`);
     if (jsonObj[item] != newChecksum) {
       jsonObj[item] = newChecksum;
       saveInfo(jsonObj, jsonFN);
       console.log(`${item} checksum updated!`);
-      notify(myURL, myTitle);
+      //notify(myURL, myTitle);
     } else {
       console.log(`${item} checksum didn't change!!!`);
     }

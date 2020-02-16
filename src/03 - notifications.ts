@@ -19,7 +19,7 @@ function notify(myURL: string, myTitle: string) {
   let myPush = new Push({
     /* user token delivers to a single subscriber, 
     group token delivers to the whole list */
-    user: secretsObj["user"],
+    user: secretsObj["group"],
     token: secretsObj["token"]
   });
 

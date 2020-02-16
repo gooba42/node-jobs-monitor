@@ -53,7 +53,7 @@ function notify(myURL, myTitle) {
     let myPush = new Push({
         /* user token delivers to a single subscriber,
         group token delivers to the whole list */
-        user: secretsObj["user"],
+        user: secretsObj["group"],
         token: secretsObj["token"]
     });
     let msg = {
@@ -77,9 +77,13 @@ const getPageSum = async (myURL) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(myURL);
-    myPageContent = await page.content();
+    //myPageContent = await page.content();
+    let bodyHandle = await page.$("body");
+    myPageContent = await page.evaluate(body => body.innerText, bodyHandle);
+    await bodyHandle.dispose();
     await browser.close();
     return checksum(myPageContent);
+    //return myPageContent;
 };
 const siteLoop = async () => {
     for (let item in sites) {
@@ -89,11 +93,12 @@ const siteLoop = async () => {
         newChecksum = await getPageSum(myURL);
         console.log(`Checksum,${item} coming up!\n`);
         console.log(`Existing checksum is ${jsonObj[item]}`);
+        console.log(`New checksum is ${newChecksum}`);
         if (jsonObj[item] != newChecksum) {
             jsonObj[item] = newChecksum;
             saveInfo(jsonObj, jsonFN);
             console.log(`${item} checksum updated!`);
-            notify(myURL, myTitle);
+            //notify(myURL, myTitle);
         }
         else {
             console.log(`${item} checksum didn't change!!!`);
