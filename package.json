@@ -1,0 +1,33 @@
+{
+  "name": "node-jobs-monitor",
+  "version": "1.0.0",
+  "description": "Monitors jobs sites, reports back updates and changes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gooba42/node-jobs-monitor.git"
+  },
+  "author": "Kyle Turpin",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/gooba42/node-jobs-monitor/issues"
+  },
+  "homepage": "https://github.com/gooba42/node-jobs-monitor#readme",
+  "dependencies": {
+    "checksum": "^0.1.1",
+    "puppeteer": "^2.1.1",
+    "pushover-notifications": "^1.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/parser": "^7.8.4",
+    "@babel/types": "^7.8.3",
+    "@types/node": "^13.7.1",
+    "@types/puppeteer": "^2.0.0",
+    "jest": "^25.1.0",
+    "jest-diff": "^25.1.0"
+  }
+}
